@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/util
+         http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<bean id="dateFormater" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy-MM-dd" />
+	</bean>
+
+	<bean class="com.springExmpl.beans.SimpleBeanPostProcessor" />
+	<bean class="com.springExmpl.beans.SimpleBeanPostProcessor2" />
+
+	<util:map id="mapBean">
+		<entry key="cle1" value="valeur1" />
+		<entry key="cle2" value="valeur2" />
+	</util:map>
+
+	<!-- A simple bean definition -->
+	<bean id="articleDataBean"
+		class="com.springExmpl.beans.ArticleDataBean">
+		<!-- collaborators and configuration for this bean go here -->
+
+		<property name="id" value="1" />
+		<property name="name" value="Ar1" />
+		<property name="price" value="1.15" />
+		<property name="mapProperty" ref="mapBean" />
+
+	</bean>
+
+	<!-- <bean id="CatalogueDataBean" class="com.springExmpl.beans.CatalogueDataBean" 
+		> collaborators and configuration for this bean go here </bean> -->
+
+	<bean id="articleMetierBean"
+		class="com.springExmpl.beans.ArticleMetierBean">
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+
+</beans>
